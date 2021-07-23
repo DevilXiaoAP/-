@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数实践</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ad"></div>
+    <script>
+        //点击div，2s后修改颜色
+        //获取元素
+        let ad = document.getElementById('ad');
+        //绑定单击响应事件
+        ad.addEventListener("click", function() {
+            // //保存this值
+            // let _this = this;
+            // //定时器
+            // setTimeout(function() {
+            //     _this.style.backgroundColor = 'pink';
+            // }, 2000);
+
+
+            //方法二
+            setTimeout(() => {
+                this.style.backgroundColor = 'pink';
+                //箭头函数下的this是静态的，固定为声明时的初始指向
+            }, 2000);
+        });
+
+
+
+        //从数组中返回偶数的元素
+        const arr = [1, 3, 54, 8, 64, 79];
+        // const result = arr.filter(function(item) {
+        //     if (item % 2 == 0) {
+        //         return true;
+        //         alert(item);
+        //     } else {
+        //         return false;
+        //     }
+        // });
+        // console.log(result);
+
+
+        const result = arr.filter(item => item % 2 === 0);
+        console.log(result);
+    </script>
+</body>
+
+</html>
